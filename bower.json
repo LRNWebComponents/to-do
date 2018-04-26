@@ -7,7 +7,6 @@
     "hax-body-behaviors": "LRNWebComponents/hax-body-behaviors#^1.2.0",
     "materializecss-styles": "LRNWebComponents/materializecss-styles#^1.0.0",
     "schema-behaviors": "LRNWebComponents/schema-behaviors",
-    "iron-list": "PolymerElements/iron-list#^2.0.14",
     "iron-icons": "PolymerElements/iron-icons#^2.1.1",
     "paper-checkbox": "PolymerElements/paper-checkbox#^2.0.4",
     "paper-card": "PolymerElements/paper-card#^2.1.0",
