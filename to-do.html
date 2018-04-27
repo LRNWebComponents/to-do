@@ -84,12 +84,12 @@ A LRN element
       behaviors: [
         HAXBehaviors.PropertiesBehaviors
       ],
-      listeners: {
-        'itembutton.tap': '_addItemToList',
-      },
       observers: [
         '_valueChanged(items.*)'
       ],
+      listeners: {
+        'itembutton.tap': '_addItemToList',
+      },
       properties: {
         /**
          * Allow for hiding the input form for new data.
@@ -123,6 +123,16 @@ A LRN element
           value: [],
           notify: true,
         },
+      },
+      /**
+       * Ensure the values change.
+       */
+      _valueChanged: function(e) {
+        for (var i in e.base) {
+          for (var j in e.base[i]) {
+            this.notifyPath('items.' + i + '.' + j);
+          }
+        }
       },
       /**
        * Add a new item to the list.
@@ -182,16 +192,21 @@ A LRN element
                 'title': 'List of items',
                 'description': 'List of items to display in our list.',
                 'inputMethod': 'array',
-                'items': {
-                  'label': {
+                'properties': [
+                  {
+                    'property': 'label',
                     'title': 'Task',
-                    'type': 'string'
+                    'description': 'Name of the task',
+                    'inputMethod': 'textfield',
+                    'required': true,
                   },
-                  'value': {
+                  {
+                    'property': 'value',
                     'title': 'Done',
-                    'type': 'boolean'
-                  }
-                }
+                    'description': 'Completion state',
+                    'inputMethod': 'boolean',
+                  },
+                ]
               },
             ],
             'advanced': [
